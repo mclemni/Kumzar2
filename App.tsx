@@ -181,7 +181,7 @@ const App: React.FC = () => {
                <img 
                  src="https://synthir-pharma.com/wp-content/uploads/2026/01/Screenshot_2026-01-29_231958-removebg-preview.png" 
                  alt="Pastel Logo" 
-                 className="h-10 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                 className="h-8 w-auto object-contain hover:scale-105 transition-transform duration-300"
                />
              </div>
           </div>

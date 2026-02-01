@@ -16,7 +16,7 @@ export const Logo: React.FC<LogoProps> = ({ className, variant = 'white' }) => {
       <img 
         src={logoUrl} 
         alt="Kumzar Logo" 
-        className={`w-auto object-contain transition-all duration-300 ${className?.includes('h-') ? '' : 'h-10'}`}
+        className={`w-auto object-contain transition-all duration-300 ${className?.includes('h-') ? '' : 'h-8'}`}
       />
     </div>
   );
