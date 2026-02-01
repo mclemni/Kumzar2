@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
 
       {/* 2. REQUESTED PATTERN LAYER - Positioned Right, No Repeat */}
       <div 
-        className="absolute inset-0 z-[15] pointer-events-none"
+        className="absolute inset-0 z-[15] pointer-events-none opacity-30 md:opacity-100"
         style={{ 
           backgroundImage: 'url("https://pastel.com.iq/wp-content/uploads/2026/02/pattren@2x.png")',
           backgroundSize: '60% auto',
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
       />
 
       {/* 3. Main Content Container */}
-      <div className="relative z-20 w-full max-w-[1200px] mx-auto px-16 flex items-center justify-between h-full pt-20">
+      <div className="relative z-20 w-full max-w-[1200px] mx-auto px-6 md:px-16 flex items-center justify-between h-full pt-20">
         
         {/* Left Side: Main Text */}
         <div 
@@ -79,10 +79,10 @@ export const Hero: React.FC = () => {
             ${textVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
           `}
         >
-          <p className="text-white/60 text-[11px] font-bold tracking-[0.3em] uppercase mb-6">
+          <p className="text-white/60 text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase mb-4 md:mb-6">
             {slide.label}
           </p>
-          <h1 className="text-white text-5xl md:text-6xl font-light leading-tight mb-12">
+          <h1 className="text-white text-4xl md:text-6xl font-light leading-tight mb-8 md:mb-12">
             {slide.headline.map((line, i) => (
               <span key={i} className="block">{line}</span>
             ))}
@@ -93,7 +93,7 @@ export const Hero: React.FC = () => {
           </button>
         </div>
 
-        {/* Right Side: Floating Card - Aligned with Headline */}
+        {/* Right Side: Floating Card - Hidden on mobile */}
         <div 
           className={`hidden lg:block w-[340px] bg-white/5 backdrop-blur-3xl p-7 rounded-sm shadow-2xl border border-white/10 group cursor-pointer hover:bg-white/10 transition-all duration-700
             ${textVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}
@@ -115,14 +115,14 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Bottom Tabs Navigation */}
+      {/* 4. Bottom Tabs Navigation - Responsive scrolling */}
       <div className="absolute bottom-0 left-0 w-full z-30 border-t border-white/5 bg-brand-dark/20 backdrop-blur-sm">
-        <div className="max-w-[1200px] mx-auto flex">
+        <div className="max-w-[1200px] mx-auto flex overflow-x-auto no-scrollbar scroll-smooth">
           {SLIDES.map((s, idx) => (
             <button
               key={s.id}
               onClick={() => handleTabClick(idx)}
-              className={`flex-1 py-8 text-[11px] font-bold tracking-[0.2em] text-center transition-all relative uppercase ${idx === current ? 'text-brand-accent' : 'text-white/40 hover:text-white/80'}`}
+              className={`flex-1 min-w-[120px] py-6 md:py-8 text-[10px] md:text-[11px] font-bold tracking-[0.2em] text-center transition-all relative uppercase ${idx === current ? 'text-brand-accent' : 'text-white/40 hover:text-white/80'}`}
             >
               {s.tabLabel}
               {idx === current && (
